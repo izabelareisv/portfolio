@@ -1,78 +1,676 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Izabela Reis | Desenvolvedora iOS</title>
 
   <style>
+    :root {
+      --fundo: #f8f9fa;
+      --fundo-alternativo: #edf0f2;
+      --texto: #24282c;
+      --texto-secundario: #626b73;
+      --destaque: #526f80;
+      --linha: #d5dade;
+      --branco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      background: #f5f6fa;
-      color: #25283a;
-    }
-
-    header {
-      background: #202a55;
-      color: white;
-      padding: 60px 24px;
-      text-align: center;
-    }
-
-    main {
-      max-width: 800px;
-      margin: auto;
-      padding: 32px 24px;
-    }
-
-    section {
-      background: white;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 20px;
+      background: var(--fundo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
     }
 
     a {
-      color: #4056a1;
+      color: inherit;
+      text-decoration: none;
     }
 
-    header a {
-      color: white;
+    a:focus-visible {
+      outline: 2px solid var(--destaque);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* MENU */
+
+    .cabecalho {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(248, 249, 250, 0.96);
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .menu {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .marca {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .links-menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 28px;
+      color: var(--texto-secundario);
+      font-size: 14px;
+    }
+
+    .links-menu a:hover {
+      color: var(--destaque);
+    }
+
+    /* SEÇÕES */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .fundo-alternativo {
+      background: var(--fundo-alternativo);
+    }
+
+    .etiqueta {
+      margin: 0 0 18px;
+      color: var(--destaque);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.1;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(52px, 7vw, 88px);
+      letter-spacing: -2px;
+    }
+
+    h2 {
+      margin: 0 0 38px;
+      font-size: clamp(38px, 5vw, 56px);
+      letter-spacing: -1px;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 25px;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    .texto-suave {
+      color: var(--texto-secundario);
+    }
+
+    /* APRESENTAÇÃO */
+
+    .inicio {
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+    }
+
+    .inicio-conteudo {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .subtitulo {
+      margin-bottom: 25px;
+      color: var(--texto-secundario);
+      font-size: 20px;
+    }
+
+    .descricao-inicio {
+      max-width: 520px;
+      color: var(--texto-secundario);
+      font-size: 17px;
+    }
+
+    .acoes {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 26px;
+      margin-top: 34px;
+    }
+
+    .botao {
+      display: inline-block;
+      padding: 13px 24px;
+      background: var(--texto);
+      color: var(--branco);
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .botao:hover {
+      background: var(--destaque);
+    }
+
+    .link-sublinhado {
+      border-bottom: 1px solid var(--texto);
+      padding-bottom: 3px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .foto-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #dce2e6;
+      color: #657985;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .foto-icone {
+      width: 82px;
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #9baab3;
+      border-radius: 50%;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 26px;
+    }
+
+    .foto-placeholder p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* SOBRE */
+
+    .sobre-texto {
+      max-width: 740px;
+      font-size: 17px;
+    }
+
+    .sobre-texto p:first-child {
+      color: var(--texto);
+      font-size: 19px;
+    }
+
+    /* EXPERIÊNCIA E PROJETOS */
+
+    .experiencia-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 35px;
+      padding: 36px 0;
+      border-top: 1px solid var(--linha);
+    }
+
+    .experiencia-item:last-child {
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .experiencia-categoria {
+      color: var(--destaque);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .experiencia-descricao {
+      max-width: 720px;
+      color: var(--texto-secundario);
+    }
+
+    .experiencia-descricao h3 {
+      color: var(--texto);
+    }
+
+    .experiencia-descricao p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* CONHECIMENTOS */
+
+    .habilidades-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 50px;
+    }
+
+    .numero {
+      margin-bottom: 16px;
+      color: var(--destaque);
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .habilidade p:last-child {
+      color: var(--texto-secundario);
+      margin-bottom: 0;
+    }
+
+    /* CONTATO */
+
+    .contato-texto {
+      max-width: 600px;
+      color: var(--texto-secundario);
+      font-size: 17px;
+    }
+
+    .contato-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 35px;
+    }
+
+    .contato-links a {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      border-bottom: 1px solid transparent;
+      overflow-wrap: anywhere;
+    }
+
+    .contato-links a:hover {
+      color: var(--destaque);
+      border-color: var(--destaque);
+    }
+
+    /* RODAPÉ */
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--linha);
+      color: var(--texto-secundario);
+      font-size: 13px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* ADAPTAÇÃO PARA CELULAR */
+
+    @media (max-width: 760px) {
+      .menu {
+        padding: 16px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .links-menu {
+        justify-content: flex-start;
+        gap: 10px 20px;
+      }
+
+      html {
+        scroll-padding-top: 150px;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .inicio {
+        min-height: auto;
+      }
+
+      .inicio-conteudo {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .foto-placeholder {
+        max-width: 420px;
+        aspect-ratio: 4 / 3;
+      }
+
+      .experiencia-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .habilidades-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>Izabela Reis</h1>
-    <p>Desenvolvedora iOS | Swift | SwiftUI | UIKit</p>
-    <a href="https://www.linkedin.com/">LinkedIn</a>
+
+  <!-- MENU -->
+  <header class="cabecalho">
+    <div class="container menu">
+      <a class="marca" href="#inicio">Izabela Reis</a>
+
+      <nav class="links-menu" aria-label="Menu principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#habilidades">Conhecimentos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section>
-      <h2>Sobre mim</h2>
-      <p>
-        Sou desenvolvedora iOS e gosto de criar aplicativos que
-        proporcionem boas experiências para as pessoas.
-      </p>
+
+    <!-- APRESENTAÇÃO -->
+    <section class="inicio" id="inicio">
+      <div class="container inicio-conteudo">
+        <div>
+          <p class="etiqueta">Desenvolvimento mobile</p>
+
+          <h1>Izabela Reis</h1>
+
+          <p class="subtitulo">
+            Desenvolvedora iOS · Swift · SwiftUI
+          </p>
+
+          <p class="descricao-inicio">
+            Desenvolvedora iOS com mais de 6 anos de experiência
+            na criação e evolução de aplicativos. Trabalho com Swift,
+            SwiftUI e UIKit, buscando unir qualidade técnica e boas
+            experiências para as pessoas usuárias.
+          </p>
+
+          <div class="acoes">
+            <a class="botao" href="#experiencia">
+              Conheça meu trabalho
+            </a>
+
+            <a class="link-sublinhado" href="#contato">
+              Entre em contato
+            </a>
+          </div>
+        </div>
+
+        <!-- ESPAÇO RESERVADO PARA FOTO -->
+        <div class="foto-placeholder">
+          <div class="foto-icone" aria-hidden="true">IR</div>
+          <p>Espaço para sua foto</p>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Habilidades</h2>
-      <p>Swift, SwiftUI, UIKit, MVVM, testes unitários e APIs.</p>
+    <!-- SOBRE MIM -->
+    <section id="sobre">
+      <div class="container">
+        <p class="etiqueta">Sobre mim</p>
+
+        <h2>Criando experiências para iOS desde 2020.</h2>
+
+        <div class="sobre-texto">
+          <p>
+            Sou desenvolvedora iOS, formada em Sistemas de Informação,
+            com mais de 6 anos de experiência em desenvolvimento mobile.
+          </p>
+
+          <p class="texto-suave">
+            Ao longo da minha trajetória, participei da criação e evolução
+            de aplicativos, desenvolvendo interfaces e funcionalidades,
+            integrando serviços e trabalhando na manutenção e modernização
+            de código existente.
+          </p>
+
+          <p class="texto-suave">
+            Tenho interesse em arquitetura de software, acessibilidade,
+            testes e qualidade de código. Gosto de colaborar com diferentes
+            áreas, compartilhar conhecimento e participar das decisões
+            que ajudam a construir produtos melhores.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Experiência e projetos</h2>
-      <p>Adicione aqui os aplicativos, projetos e entregas que deseja destacar.</p>
+    <!-- EXPERIÊNCIA PROFISSIONAL -->
+    <section class="fundo-alternativo" id="experiencia">
+      <div class="container">
+        <p class="etiqueta">Experiência</p>
+
+        <h2>Minha trajetória profissional.</h2>
+
+        <div class="experiencia-item">
+          <div class="experiencia-categoria">
+            Abr 2026 — atual
+          </div>
+
+          <div class="experiencia-descricao">
+            <h3>Desenvolvedora iOS</h3>
+            <p>CI&T · Belo Horizonte, Brasil</p>
+          </div>
+        </div>
+
+        <div class="experiencia-item">
+          <div class="experiencia-categoria">
+            Jan 2022 — Mar 2026
+          </div>
+
+          <div class="experiencia-descricao">
+            <h3>Desenvolvedora iOS</h3>
+            <p>dti digital · Belo Horizonte, Brasil</p>
+          </div>
+        </div>
+
+        <div class="experiencia-item">
+          <div class="experiencia-categoria">
+            Out 2020 — Jan 2022
+          </div>
+
+          <div class="experiencia-descricao">
+            <h3>Desenvolvedora iOS</h3>
+            <p>Hinova Mobile · Belo Horizonte, Brasil</p>
+          </div>
+        </div>
+
+        <div class="experiencia-item">
+          <div class="experiencia-categoria">
+            Mar 2020 — Set 2020
+          </div>
+
+          <div class="experiencia-descricao">
+            <h3>Desenvolvedora Mobile Júnior</h3>
+            <p>Hinova Mobile · Belo Horizonte, Brasil</p>
+          </div>
+        </div>
+
+        <div class="experiencia-item">
+          <div class="experiencia-categoria">
+            Nov 2018 — Fev 2020
+          </div>
+
+          <div class="experiencia-descricao">
+            <h3>Analista de Implantação</h3>
+            <p>Hinova Mobile · Belo Horizonte, Brasil</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Contato</h2>
-      <p>Adicione seu e-mail profissional e outros links de contato.</p>
+    <!-- PROJETOS PROFISSIONAIS -->
+    <section id="projetos">
+      <div class="container">
+        <p class="etiqueta">Projetos profissionais</p>
+
+        <h2>Alguns trabalhos em destaque.</h2>
+
+        <div class="experiencia-item">
+          <div class="experiencia-categoria">
+            Desenvolvimento iOS
+          </div>
+
+          <div class="experiencia-descricao">
+            <h3>Sherwin-Williams PRO</h3>
+
+            <p>
+              Participação na evolução do aplicativo, com desenvolvimento
+              de funcionalidades em SwiftUI, incluindo a experiência de
+              compras, a busca de produtos e o fluxo de criação e
+              verificação de conta.
+            </p>
+
+            <p>
+              O trabalho também envolveu integração com serviços,
+              validação de formulários, testes unitários e melhorias
+              em funcionalidades existentes.
+            </p>
+          </div>
+        </div>
+
+        <div class="experiencia-item">
+          <div class="experiencia-categoria">
+            Desenvolvimento iOS
+          </div>
+
+          <div class="experiencia-descricao">
+            <h3>Empower</h3>
+
+            <p>
+              Participação no desenvolvimento e na evolução de
+              funcionalidades, incluindo a reformulação do fluxo de
+              QuickCheck, melhorias no perfil e recursos de busca.
+            </p>
+
+            <p>
+              Também atuei em correções e testes de cenários como acesso
+              offline, reenvio de requisições e visualização de documentos.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- CONHECIMENTOS -->
+    <section class="fundo-alternativo" id="habilidades">
+      <div class="container">
+        <p class="etiqueta">Conhecimentos</p>
+
+        <h2>Com o que trabalho.</h2>
+
+        <div class="habilidades-grid">
+          <div class="habilidade">
+            <p class="numero">01</p>
+
+            <h3>Desenvolvimento iOS</h3>
+
+            <p>
+              Swift, SwiftUI, UIKit, Combine, Swift Concurrency,
+              acessibilidade com VoiceOver e Dynamic Type, e
+              desenvolvimento de interfaces.
+            </p>
+          </div>
+
+          <div class="habilidade">
+            <p class="numero">02</p>
+
+            <h3>Arquitetura e qualidade</h3>
+
+            <p>
+              MVVM, VIPER, Clean Architecture, SOLID, injeção de
+              dependências, testes unitários com XCTest e Swift Testing,
+              e snapshot testing.
+            </p>
+          </div>
+
+          <div class="habilidade">
+            <p class="numero">03</p>
+
+            <h3>Dados, ferramentas e colaboração</h3>
+
+            <p>
+              APIs REST, Core Data, estratégias offline-first, Git,
+              Swift Package Manager, CocoaPods, XcodeGen, SwiftGen,
+              Azure DevOps, Jira e Scrum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato">
+      <div class="container">
+        <p class="etiqueta">Contato</p>
+
+        <h2>Vamos conversar?</h2>
+
+        <p class="contato-texto">
+          Gosto de conhecer pessoas, trocar experiências e conversar
+          sobre desenvolvimento iOS e oportunidades profissionais.
+        </p>
+
+        <div class="contato-links">
+          <a href="mailto:izabelareisv@gmail.com">
+            izabelareisv@gmail.com
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/izabela-reis-a8b3a814a/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="container">
+      <p>© Izabela Reis · Desenvolvedora iOS</p>
+    </div>
+  </footer>
+
 </body>
+
 </html>
