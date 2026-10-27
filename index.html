@@ -24,7 +24,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px;
+      scroll-padding-top: 100px;
     }
 
     body {
@@ -88,7 +88,7 @@
       color: var(--destaque);
     }
 
-    /* SEÇÕES */
+    /* ESTILOS GERAIS */
 
     section {
       padding: 110px 0;
@@ -195,35 +195,14 @@
       font-weight: bold;
     }
 
-    .foto-placeholder {
+    .foto-perfil {
+      display: block;
       width: 100%;
       aspect-ratio: 4 / 5;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: #dce2e6;
-      color: #657985;
+      object-fit: cover;
+      object-position: center;
       border-radius: 4px;
-      text-align: center;
-    }
-
-    .foto-icone {
-      width: 82px;
-      height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #9baab3;
-      border-radius: 50%;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 26px;
-    }
-
-    .foto-placeholder p {
-      margin: 0;
-      font-size: 14px;
+      background: #dce2e6;
     }
 
     /* SOBRE */
@@ -271,6 +250,17 @@
 
     .experiencia-descricao p:last-child {
       margin-bottom: 0;
+    }
+
+    .empresa {
+      color: var(--texto);
+      font-size: 15px;
+    }
+
+    .tecnologias {
+      color: var(--destaque);
+      font-size: 14px;
+      font-weight: bold;
     }
 
     /* CONHECIMENTOS */
@@ -333,7 +323,7 @@
       margin: 0;
     }
 
-    /* ADAPTAÇÃO PARA CELULAR */
+    /* CELULAR */
 
     @media (max-width: 760px) {
       .menu {
@@ -365,9 +355,9 @@
         gap: 40px;
       }
 
-      .foto-placeholder {
+      .foto-perfil {
         max-width: 420px;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 4 / 5;
       }
 
       .experiencia-item {
@@ -432,11 +422,12 @@
           </div>
         </div>
 
-        <!-- ESPAÇO RESERVADO PARA FOTO -->
-        <div class="foto-placeholder">
-          <div class="foto-icone" aria-hidden="true">IR</div>
-          <p>Espaço para sua foto</p>
-        </div>
+        <!-- FOTO: adicione foto.jpg na mesma pasta do index.html -->
+        <img
+          class="foto-perfil"
+          src="foto.jpg"
+          alt="Foto de Izabela Reis"
+        >
       </div>
     </section>
 
@@ -455,9 +446,9 @@
 
           <p class="texto-suave">
             Ao longo da minha trajetória, participei da criação e evolução
-            de aplicativos, desenvolvendo interfaces e funcionalidades,
-            integrando serviços e trabalhando na manutenção e modernização
-            de código existente.
+            de aplicativos para diferentes setores, desenvolvendo
+            interfaces e funcionalidades, integrando serviços e trabalhando
+            na manutenção e modernização de código existente.
           </p>
 
           <p class="texto-suave">
@@ -484,7 +475,16 @@
 
           <div class="experiencia-descricao">
             <h3>Desenvolvedora iOS</h3>
-            <p>CI&T · Belo Horizonte, Brasil</p>
+
+            <p class="empresa">
+              CI&T · Belo Horizonte, Brasil
+            </p>
+
+            <p>
+              Na CI&T, empresa de tecnologia que atua na transformação
+              digital de negócios, trabalho com desenvolvimento iOS,
+              contribuindo para a criação e evolução de soluções mobile.
+            </p>
           </div>
         </div>
 
@@ -495,7 +495,30 @@
 
           <div class="experiencia-descricao">
             <h3>Desenvolvedora iOS</h3>
-            <p>dti digital · Belo Horizonte, Brasil</p>
+
+            <p class="empresa">
+              dti digital · Belo Horizonte, Brasil
+            </p>
+
+            <p>
+              Na dti digital, consultoria de tecnologia com atuação em
+              projetos para clientes no Brasil e no exterior, participei
+              da evolução de aplicativos iOS de diferentes segmentos.
+            </p>
+
+            <p>
+              Trabalhei em projetos como Sherwin-Williams PRO, Empower,
+              by ISN, Outback, Pollo Tropical e Jeep Trilhas. Minha atuação
+              envolveu desenvolvimento de funcionalidades, melhorias
+              de interface, integração com APIs, testes e manutenção
+              de aplicações.
+            </p>
+
+            <p>
+              Também participei de refinamentos, planejamentos,
+              revisões de código e outras atividades de colaboração
+              com os times de produto e desenvolvimento.
+            </p>
           </div>
         </div>
 
@@ -506,7 +529,16 @@
 
           <div class="experiencia-descricao">
             <h3>Desenvolvedora iOS</h3>
-            <p>Hinova Mobile · Belo Horizonte, Brasil</p>
+
+            <p class="empresa">
+              Hinova Mobile · Belo Horizonte, Brasil
+            </p>
+
+            <p>
+              Atuei no desenvolvimento de aplicativos mobile,
+              implementando novas funcionalidades e realizando
+              manutenção e melhorias em aplicações existentes.
+            </p>
           </div>
         </div>
 
@@ -517,7 +549,16 @@
 
           <div class="experiencia-descricao">
             <h3>Desenvolvedora Mobile Júnior</h3>
-            <p>Hinova Mobile · Belo Horizonte, Brasil</p>
+
+            <p class="empresa">
+              Hinova Mobile · Belo Horizonte, Brasil
+            </p>
+
+            <p>
+              Iniciei minha atuação em desenvolvimento mobile,
+              trabalhando em novas funcionalidades e na manutenção
+              de aplicativos.
+            </p>
           </div>
         </div>
 
@@ -528,7 +569,15 @@
 
           <div class="experiencia-descricao">
             <h3>Analista de Implantação</h3>
-            <p>Hinova Mobile · Belo Horizonte, Brasil</p>
+
+            <p class="empresa">
+              Hinova Mobile · Belo Horizonte, Brasil
+            </p>
+
+            <p>
+              Atuei como analista de implantação antes de fazer a
+              transição para o desenvolvimento mobile.
+            </p>
           </div>
         </div>
       </div>
@@ -537,50 +586,157 @@
     <!-- PROJETOS PROFISSIONAIS -->
     <section id="projetos">
       <div class="container">
-        <p class="etiqueta">Projetos profissionais</p>
+        <p class="etiqueta">Projetos profissionais · dti digital</p>
 
-        <h2>Alguns trabalhos em destaque.</h2>
+        <h2>Projetos em que trabalhei.</h2>
 
+        <!-- SHERWIN-WILLIAMS PRO -->
         <div class="experiencia-item">
           <div class="experiencia-categoria">
-            Desenvolvimento iOS
+            Varejo · Desenvolvimento iOS
           </div>
 
           <div class="experiencia-descricao">
             <h3>Sherwin-Williams PRO</h3>
 
             <p>
-              Participação na evolução do aplicativo, com desenvolvimento
-              de funcionalidades em SwiftUI, incluindo a experiência de
-              compras, a busca de produtos e o fluxo de criação e
-              verificação de conta.
+              Aplicativo voltado a profissionais que utilizam produtos
+              e serviços da Sherwin-Williams, reunindo recursos para
+              consulta e compra de produtos.
             </p>
 
             <p>
-              O trabalho também envolveu integração com serviços,
-              validação de formulários, testes unitários e melhorias
-              em funcionalidades existentes.
+              Participei da evolução da experiência de compras em SwiftUI,
+              incluindo a aba Shop, a busca de produtos e a navegação
+              para detalhes dos itens. Também trabalhei no fluxo de
+              criação e verificação de conta, com formulários, validações
+              e integração com serviços.
+            </p>
+
+            <p>
+              Minha atuação incluiu testes unitários, tratamento de
+              estados de conexão e melhorias em funcionalidades existentes.
+            </p>
+
+            <p class="tecnologias">
+              Swift · SwiftUI · UIKit · APIs · XCTest
             </p>
           </div>
         </div>
 
+        <!-- EMPOWER -->
         <div class="experiencia-item">
           <div class="experiencia-categoria">
-            Desenvolvimento iOS
+            Segurança e compliance · Desenvolvimento iOS
           </div>
 
           <div class="experiencia-descricao">
-            <h3>Empower</h3>
+            <h3>Empower, by ISN</h3>
 
             <p>
-              Participação no desenvolvimento e na evolução de
-              funcionalidades, incluindo a reformulação do fluxo de
-              QuickCheck, melhorias no perfil e recursos de busca.
+              Plataforma voltada à segurança e ao compliance de
+              profissionais e empresas contratadas, com acesso a
+              informações, treinamentos e requisitos.
             </p>
 
             <p>
-              Também atuei em correções e testes de cenários como acesso
-              offline, reenvio de requisições e visualização de documentos.
+              Participei da reformulação do fluxo de QuickCheck,
+              de melhorias no perfil e do desenvolvimento de recursos
+              de busca e visualização de documentos.
+            </p>
+
+            <p>
+              Também trabalhei em correções e testes de cenários como
+              acesso offline, reenvio de requisições e apresentação
+              de informações sobre requisitos e treinamentos.
+            </p>
+
+            <p class="tecnologias">
+              Swift · SwiftUI · UIKit · Offline-first · Testes
+            </p>
+          </div>
+        </div>
+
+        <!-- OUTBACK -->
+        <div class="experiencia-item">
+          <div class="experiencia-categoria">
+            Restaurantes · Desenvolvimento iOS
+          </div>
+
+          <div class="experiencia-descricao">
+            <h3>Outback · Bloomin' Brands</h3>
+
+            <p>
+              Projeto de aplicativos para restaurantes da Bloomin' Brands,
+              grupo responsável por marcas como Outback Steakhouse,
+              Carrabba's e Bonefish Grill. Os aplicativos oferecem
+              experiências relacionadas a pedidos, fidelidade e
+              carteira digital.
+            </p>
+
+            <p>
+              Participei do desenvolvimento iOS em um contexto de
+              aplicativos para diferentes marcas, colaborando com a
+              equipe na evolução das experiências mobile.
+            </p>
+
+            <p class="tecnologias">
+              Desenvolvimento iOS · Aplicativos para restaurantes
+            </p>
+          </div>
+        </div>
+
+        <!-- POLLO TROPICAL -->
+        <div class="experiencia-item">
+          <div class="experiencia-categoria">
+            Restaurantes · Desenvolvimento iOS
+          </div>
+
+          <div class="experiencia-descricao">
+            <h3>Pollo Tropical</h3>
+
+            <p>
+              Aplicativo da rede de restaurantes Pollo Tropical,
+              com recursos para consultar o cardápio, realizar pedidos
+              para retirada ou entrega e participar do programa de
+              fidelidade da marca.
+            </p>
+
+            <p>
+              Participei do desenvolvimento iOS do projeto, colaborando
+              com a equipe na evolução da experiência mobile.
+            </p>
+
+            <p class="tecnologias">
+              Desenvolvimento iOS · Aplicativo de pedidos e fidelidade
+            </p>
+          </div>
+        </div>
+
+        <!-- JEEP TRILHAS -->
+        <div class="experiencia-item">
+          <div class="experiencia-categoria">
+            Aventura · Desenvolvimento iOS
+          </div>
+
+          <div class="experiencia-descricao">
+            <h3>Jeep Trilhas</h3>
+
+            <p>
+              Aplicativo da Jeep criado para ajudar pessoas a explorar
+              roteiros e trilhas pelo Brasil. O projeto foi integrado
+              ao Jeep Nation e apresentou recursos de gamificação para
+              quem completava os percursos.
+            </p>
+
+            <p>
+              Participei do desenvolvimento iOS do projeto, colaborando
+              com a equipe na construção e evolução da experiência
+              mobile.
+            </p>
+
+            <p class="tecnologias">
+              Desenvolvimento iOS · Experiências de aventura
             </p>
           </div>
         </div>
